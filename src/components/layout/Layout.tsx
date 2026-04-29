@@ -213,7 +213,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <FloatingNav />
       <Footer role="contentinfo">
         <div className="container">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Shivansh Pachnanda. All rights reserved.</p>
         </div>
       </Footer>
     </LayoutWrapper>

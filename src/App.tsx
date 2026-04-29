@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Layout } from './components/layout/Layout';
 import { Hero } from './components/sections/Hero';
 import { GlobalStyles } from './constants/GlobalStyles';
@@ -28,6 +28,16 @@ const LoadingFallback = styled.div`
 `;
 
 function App() {
+   useEffect(() => {
+    // Prevent browser from restoring old scroll position
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Always start from top on reload
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
