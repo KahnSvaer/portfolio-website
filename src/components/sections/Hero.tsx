@@ -50,7 +50,7 @@ const HeroContent = styled.div`
 const HeroLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
+  align-items: stretch;
   gap: 2rem;
 
   @media (min-width: ${theme.breakpoints.md}) {
@@ -68,17 +68,17 @@ const TextContent = styled.div`
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 const ProfileImage = styled.img`
-  width: min(100%, 380px);
+  width: min(100%, 340px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
 
   @media (min-width: ${theme.breakpoints.md}) {
-    width: 420px;
+    width: 380px;
   }
 `;
 
@@ -122,6 +122,13 @@ const Description = styled.p`
   line-height: 1.7;
 `;
 
+const ActionRow = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: ${theme.spacing.md};
+`;
+
 const SocialLinks = styled.div`
   animation: ${fadeUpKeyframes} 0.5s ease-out 0.6s forwards;
   opacity: 0;
@@ -156,6 +163,31 @@ const SocialLinks = styled.div`
   }
 `;
 
+  const ResumeButtonWrapper = styled.div`
+    animation: ${fadeUpKeyframes} 0.5s ease-out 0.6s forwards;
+    opacity: 0;
+`;
+
+  const ResumeButton = styled.a`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.4rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: ${theme.colors.textDark};
+    background: ${theme.colors.accent};
+    transition: all ${theme.transitions.default};
+    white-space: nowrap;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(246, 177, 122, 0.25);
+    }
+`;
+
 export const Hero = () => {
   return (
     <HeroSection id="about" role="region" aria-label="Introduction">
@@ -168,67 +200,80 @@ export const Hero = () => {
               </Title>
 
               <Subtitle role="heading" aria-level={3}>
-                Computer Vision Researcher
+                Computer Vision Researcher <br />
+                Delhi NCR, India
               </Subtitle>
 
               <Description>
-                I work on Computer Vision, Spatial Intelligence, and Generative AI.
+                I work on Computer Vision, Spatial Intelligence, and Generative AI. <br />
                 I build systems that understand, generate, and interact with the
                 real world—from 3D mesh generation and AR/VR applications to
                 research-driven products. I care about solving hard problems and
                 turning ambitious ideas into useful technology.
               </Description>
 
-              <SocialLinks role="list" aria-label="Social media links">
-                <a
-                  href="https://github.com/kahnsvaer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit my GitHub profile"
-                  role="listitem"
-                >
-                  <Suspense
-                    fallback={
-                      <div style={{ width: '1.5rem', height: '1.5rem' }} />
-                    }
+              <ActionRow>
+                <SocialLinks role="list" aria-label="Social media links">
+                  <a
+                    href="https://github.com/kahnsvaer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit my GitHub profile"
+                    role="listitem"
                   >
-                    <FaGithub aria-hidden="true" />
-                  </Suspense>
-                  <span className="sr-only">GitHub</span>
-                </a>
+                    <Suspense
+                      fallback={
+                        <div style={{ width: '1.5rem', height: '1.5rem' }} />
+                      }
+                    >
+                      <FaGithub aria-hidden="true" />
+                    </Suspense>
+                    <span className="sr-only">GitHub</span>
+                  </a>
 
-                <a
-                  href="https://linkedin.com/in/shivansh-pachnanda"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit my LinkedIn profile"
-                  role="listitem"
-                >
-                  <Suspense
-                    fallback={
-                      <div style={{ width: '1.5rem', height: '1.5rem' }} />
-                    }
+                  <a
+                    href="https://linkedin.com/in/shivansh-pachnanda"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit my LinkedIn profile"
+                    role="listitem"
                   >
-                    <FaLinkedin aria-hidden="true" />
-                  </Suspense>
-                  <span className="sr-only">LinkedIn</span>
-                </a>
+                    <Suspense
+                      fallback={
+                        <div style={{ width: '1.5rem', height: '1.5rem' }} />
+                      }
+                    >
+                      <FaLinkedin aria-hidden="true" />
+                    </Suspense>
+                    <span className="sr-only">LinkedIn</span>
+                  </a>
 
-                <a
-                  href="mailto:Shivansh.pachnanda.work@gmail.com"
-                  aria-label="Send me an email"
-                  role="listitem"
-                >
-                  <Suspense
-                    fallback={
-                      <div style={{ width: '1.5rem', height: '1.5rem' }} />
-                    }
+                  <a
+                    href="mailto:Shivansh.pachnanda.work@gmail.com"
+                    aria-label="Send me an email"
+                    role="listitem"
                   >
-                    <FaEnvelope aria-hidden="true" />
-                  </Suspense>
-                  <span className="sr-only">Email</span>
-                </a>
-              </SocialLinks>
+                    <Suspense
+                      fallback={
+                        <div style={{ width: '1.5rem', height: '1.5rem' }} />
+                      }
+                    >
+                      <FaEnvelope aria-hidden="true" />
+                    </Suspense>
+                    <span className="sr-only">Email</span>
+                  </a>
+                </SocialLinks>
+                <ResumeButtonWrapper>
+                  <ResumeButton
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download Resume"
+                  >
+                    Download Resume
+                  </ResumeButton>
+                </ResumeButtonWrapper>
+              </ActionRow>
             </TextContent>
 
             <ImageWrapper>
