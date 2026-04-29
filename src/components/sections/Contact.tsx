@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { theme } from '../../styles/theme';
+import { theme } from '../../constants/theme';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = styled.section`

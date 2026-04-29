@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { theme } from '../../styles/theme';
+import { theme } from '../../constants/theme';
 import { useEffect, useState } from 'react';
-import { sections } from '../../constants';
+import { sections } from '../../constants/sections';
 
 const NavContainer = styled(motion.nav)`
   position: fixed;

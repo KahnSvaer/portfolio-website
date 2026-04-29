@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { theme } from '../../styles/theme';
+import { theme } from '../../constants/theme';
 import { keyframes } from '@emotion/react';
 import { lazy, Suspense } from 'react';
 import profileImage from '../../assets/profileImage.png';

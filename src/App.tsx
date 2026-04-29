@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { Layout } from './components/layout/Layout';
 import { Hero } from './components/sections/Hero';
-import { GlobalStyles } from './styles/GlobalStyles';
+import { GlobalStyles } from './constants/GlobalStyles';
 import { ThemeProvider } from '@emotion/react';
-import { theme } from './styles/theme';
+import { theme } from './constants/theme';
 import styled from '@emotion/styled';
 
 // Lazy load non-critical components

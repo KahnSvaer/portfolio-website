@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { ReactNode, useEffect } from 'react';
-import { theme } from '../../styles/theme';
+import { theme } from '../../constants/theme';
 import { FloatingNav } from '../navigation/FloatingNav';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
-import { sections } from '../../constants'
+import { sections } from '../../constants/sections'
 
 interface LayoutProps {
   children: ReactNode;

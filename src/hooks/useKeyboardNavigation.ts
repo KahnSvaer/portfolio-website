@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { sections } from '../constants'
+import { sections } from '../constants/sections'
 
 const sectionsId = sections.map(section => section.id);
 
