@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { theme } from '../../styles/theme';
 import { useEffect, useState } from 'react';
+import { sections } from '../../constants';
 
 const NavContainer = styled(motion.nav)`
   position: fixed;
@@ -138,15 +139,8 @@ const ProgressBar = styled(motion.div)`
   }
 `;
 
-const sections = [
-  { id: 'hero', name: 'Home' },
-  { id: 'projects', name: 'Projects' },
-  { id: 'skills', name: 'Skills' },
-  { id: 'contact', name: 'Contact' }
-];
-
 export const FloatingNav = () => {
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('about');
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,

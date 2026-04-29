@@ -4,6 +4,7 @@ import { ReactNode, useEffect } from 'react';
 import { theme } from '../../styles/theme';
 import { FloatingNav } from '../navigation/FloatingNav';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
+import { sections } from '../../constants'
 
 interface LayoutProps {
   children: ReactNode;
@@ -192,10 +193,16 @@ export const Layout = ({ children }: LayoutProps) => {
               Portfolio
             </Logo>
             <NavLinks role="list">
-              <a href="#about" role="listitem" aria-label="About section">About</a>
-              <a href="#projects" role="listitem" aria-label="Projects section">Projects</a>
-              <a href="#skills" role="listitem" aria-label="Skills section">Skills</a>
-              <a href="#contact" role="listitem" aria-label="Contact section">Contact</a>
+              {sections.map(({ id, name }) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  role="listitem"
+                  aria-label={`${name} section`}
+                >
+                  {name}
+                </a>
+              ))}
             </NavLinks>
           </div>
         </Nav>

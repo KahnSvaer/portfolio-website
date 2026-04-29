@@ -158,7 +158,7 @@ const SocialLinks = styled.div`
 
 export const Hero = () => {
   return (
-    <HeroSection id="hero" role="region" aria-label="Introduction">
+    <HeroSection id="about" role="region" aria-label="Introduction">
       <div className="container">
         <HeroContent>
           <HeroLayout>
