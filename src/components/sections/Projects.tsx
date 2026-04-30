@@ -20,7 +20,7 @@ const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: calc(${theme.spacing.xl} * 1.5);
-  color: ${theme.colors.textLight};
+  color: ${theme.colors.accent};
   position: relative;
   
   &::after {
@@ -107,7 +107,8 @@ const ProjectContent = styled.div`
 const ProjectTitle = styled.h3`
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   margin-bottom: ${theme.spacing.sm};
-  color: ${theme.colors.light};
+  color: ${theme.colors.textLight};
+  font-decoration: bold;
   font-weight: 600;
 `;
 
@@ -161,7 +162,7 @@ const ProjectLinks = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   
   a {
-    color: ${theme.colors.accent};
+    color: ${theme.colors.textLight};
     font-size: clamp(1rem, 2vw, 1.2rem);
     transition: all ${theme.transitions.default};
     padding: ${theme.spacing.xs};
@@ -175,24 +176,45 @@ const ProjectLinks = styled.div`
   }
 `;
 
+const OutcomeTag = styled.p`
+  color: ${theme.colors.textLight};
+  margin-bottom: ${theme.spacing.lg};
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+  flex: 1;
+  opacity: 0.9;
+`;
+
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A full-stack web application with real-time features and modern UI/UX design.",
-    image: "https://via.placeholder.com/400x200",
-    techStack: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "AI-Generated 3D Models from Marine Animals",
+    description: "Core contributor to a GSoC 2025 project focused on scalable 3D asset generation using \
+    state-of-the-art pretrained models for AR/VR and interactive applications.",
+    image: "https://via.placeholder.com/400x200", // replace later with actual render
+    techStack: ["3D Generation", "PyTorch", "Diffusion Models", "AR/VR", "Optimization"],
+    githubUrl: "https://github.com/AIOTSonline/Marine_Biology_GenAI",
+    outcome: "Optimized Tencent Hunyuan 3D-2, reducing RAM usage by 30%, GPU usage by 60%, and latency by 80% through \
+      mesh optimization, memory management, and pipeline-level improvements."
   },
   {
     id: 2,
-    title: "Project Two",
+    title: "Water Quality Monitoring System",
+    description: "An IoT + mobile system for automated water quality analysis using image processing of water quality\
+      indication strips.",
+    image: "https://via.placeholder.com/400x200",
+    techStack: ["Flutter", "Firebase", "OpenCV", "Python", "IoT"],
+    githubUrl: "https://github.com/KahnSvaer/Water-Sensor-IOT-Project",
+    outcome: "Production-ready IoT + mobile system for real-time water quality monitoring \
+      using OpenCV-based test strip analysis and Firebase integration."
+  },
+  {
+    id: 3,
+    title: "Project Three",
     description: "Mobile-first e-commerce platform with seamless payment integration.",
     image: "https://via.placeholder.com/400x200",
     techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
     githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
   },
 ];
 
@@ -258,6 +280,11 @@ const Projects = () => {
                     <TechTag key={tech} role="listitem">{tech}</TechTag>
                   ))}
                 </TechStack>
+                {project.outcome && (
+                  <OutcomeTag>
+                    {project.outcome}
+                  </OutcomeTag>
+                )}
                 <ProjectLinks>
                   <a 
                     href={project.githubUrl} 
@@ -267,15 +294,6 @@ const Projects = () => {
                   >
                     <FaGithub aria-hidden="true" />
                     <span className="sr-only">GitHub repository</span>
-                  </a>
-                  <a 
-                    href={project.liveUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${project.title} live site`}
-                  >
-                    <FaExternalLinkAlt aria-hidden="true" />
-                    <span className="sr-only">Live site</span>
                   </a>
                 </ProjectLinks>
               </ProjectContent>

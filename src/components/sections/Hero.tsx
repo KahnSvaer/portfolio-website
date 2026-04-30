@@ -78,7 +78,7 @@ const ProfileImage = styled.img`
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
 
   @media (min-width: ${theme.breakpoints.md}) {
-    width: 380px;
+    width: 420px;
   }
 `;
 
@@ -205,7 +205,7 @@ export const Hero = () => {
               </Subtitle>
 
               <Description>
-                I work on Computer Vision, Spatial Intelligence, and Generative AI. <br />
+                I work in Computer Vision, Spatial Intelligence, and GenAI. <br />
                 I build systems that understand, generate, and interact with the
                 real world—from 3D mesh generation and AR/VR applications to
                 research-driven products. I care about solving hard problems and

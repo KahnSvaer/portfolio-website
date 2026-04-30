@@ -1,22 +1,22 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../constants/theme';
-import { 
-  FaReact, 
-  FaNodeJs, 
-  FaDatabase, 
+
+import {
+  FaReact,
   FaDocker,
-  FaGitAlt,
-  FaAws
+  FaPython,
+  FaUnity,
+  FaDatabase,
 } from 'react-icons/fa';
-import { 
-  SiTypescript,
-  SiJavascript,
-  SiPython,
-  SiMongodb,
-  SiPostgresql,
-  SiRedux
+
+import {
+  SiBlender,
+  SiThreedotjs,
+  SiFlutter,
+  SiFirebase,
 } from 'react-icons/si';
+
 
 const SkillsSection = styled.section`
   min-height: 100vh;
@@ -63,7 +63,7 @@ const SkillsContainer = styled.div`
   margin-top: ${theme.spacing.xl};
 
   @media (min-width: ${theme.breakpoints.md}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: ${theme.spacing.xl};
   }
 `;
@@ -151,38 +151,30 @@ const SkillItem = styled(motion.div)`
   }
 `;
 
+
 const skillCategories = [
   {
-    title: 'Frontend',
-    icon: <FaReact />,
+    title: '3D',
+    icon: <SiThreedotjs />, // better than random React icon
     skills: [
-      { name: 'React', icon: <FaReact /> },
-      { name: 'TypeScript', icon: <SiTypescript /> },
-      { name: 'JavaScript', icon: <SiJavascript /> },
-      { name: 'Redux', icon: <SiRedux /> },
+      { name: 'Unity', icon: <FaUnity /> },
+      { name: 'Python', icon: <FaPython /> },
+      { name: 'Blender', icon: <SiBlender /> },
+      { name: 'Three.js', icon: <SiThreedotjs /> },
     ],
   },
   {
-    title: 'Backend',
-    icon: <FaNodeJs />,
-    skills: [
-      { name: 'Node.js', icon: <FaNodeJs /> },
-      { name: 'Python', icon: <SiPython /> },
-      { name: 'MongoDB', icon: <SiMongodb /> },
-      { name: 'PostgreSQL', icon: <SiPostgresql /> },
-    ],
-  },
-  {
-    title: 'DevOps',
+    title: 'Development',
     icon: <FaDocker />,
     skills: [
-      { name: 'Docker', icon: <FaDocker /> },
-      { name: 'Git', icon: <FaGitAlt /> },
-      { name: 'AWS', icon: <FaAws /> },
-      { name: 'CI/CD', icon: <FaDatabase /> },
+      { name: 'Flutter', icon: <SiFlutter /> },
+      { name: 'React', icon: <FaReact /> },
+      { name: 'Firebase', icon: <SiFirebase /> },
+      { name: 'CI/CD', icon: <FaDatabase /> }, // generic but acceptable
     ],
   },
 ];
+
 
 const Skills = () => {
   const containerVariants = {
