@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../constants/theme';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -19,7 +19,7 @@ const ProjectsSection = styled.section`
 const SectionTitle = styled(motion.h2)`
   text-align: center;
   font-size: clamp(2rem, 4vw, 2.5rem);
-  margin-bottom: calc(${theme.spacing.xl} * 1.5);
+  margin-bottom: calc(${theme.spacing.xl});
   color: ${theme.colors.accent};
   position: relative;
   
@@ -36,7 +36,7 @@ const SectionTitle = styled(motion.h2)`
   }
 
   @media (min-width: ${theme.breakpoints.md}) {
-    margin-bottom: calc(${theme.spacing.xl} * 2);
+    margin-bottom: calc(${theme.spacing.xl});
   }
 `;
 
