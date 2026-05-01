@@ -18,6 +18,27 @@ export const useKeyboardNavigation = () => {
         return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
       });
 
+      const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        let offset = 80;
+
+        if (id === 'skills') {
+          offset = 0;
+        }
+
+        const top =
+          element.getBoundingClientRect().top +
+          window.scrollY -
+          offset;
+
+        window.scrollTo({
+          top,
+          behavior: 'smooth',
+        });
+      };
+
       const currentIndex = currentSection ? sectionsId.indexOf(currentSection) : -1;
 
       switch (e.key) {
@@ -25,23 +46,23 @@ export const useKeyboardNavigation = () => {
         case 'PageDown':
           e.preventDefault();
           if (currentIndex < sectionsId.length - 1) {
-            document.getElementById(sectionsId[currentIndex + 1])?.scrollIntoView({ behavior: 'smooth' });
+            scrollToSection(sectionsId[currentIndex + 1]);
           }
           break;
         case 'ArrowUp':
         case 'PageUp':
           e.preventDefault();
           if (currentIndex > 0) {
-            document.getElementById(sectionsId[currentIndex - 1])?.scrollIntoView({ behavior: 'smooth' });
+            scrollToSection(sectionsId[currentIndex - 1]);
           }
           break;
         case 'Home':
           e.preventDefault();
-          document.getElementById(sectionsId[0])?.scrollIntoView({ behavior: 'smooth' });
+          scrollToSection(sectionsId[0]);
           break;
         case 'End':
           e.preventDefault();
-          document.getElementById(sectionsId[sectionsId.length - 1])?.scrollIntoView({ behavior: 'smooth' });
+          scrollToSection(sectionsId[sectionsId.length - 1]);
           break;
       }
     };
