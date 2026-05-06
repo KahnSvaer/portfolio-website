@@ -94,7 +94,7 @@ const Card = styled.div`
   background: ${theme.colors.glass.background};
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  overflow: hidden;
+  background-clip: padding-box;
   color: ${theme.colors.textLight};
   transition: all ${theme.transitions.default};
   height: 100%;
@@ -106,18 +106,12 @@ const Card = styled.div`
   flex-direction: column;
 
   position: relative;
-  left: 50%;            
-  transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%) translateZ(0); /* 👈 FIX */
+
+  will-change: transform, opacity; /* 👈 FIX */
 
   padding: ${theme.spacing.md};
-
-  @media (min-width: ${theme.breakpoints.md}) {
-    padding: ${theme.spacing.lg};
-  }
-
-  &:hover {
-    box-shadow: 0 8px 30px rgba(246, 177, 122, 0.15);
-  }
 `;
 
 const Role = styled.h3`
@@ -141,19 +135,27 @@ const Description = styled.p`
 const experienceData = [
   {
     id: 1,
-    date: "May 2025",
+    date: "May 2026",
+    role: "Open Source Contributor",
+    company: "Catrobat (Google Summer of Code)",
+    description:
+      "Working on adding animation pipeline on 3D generated animals"
+  },
+  {
+    id: 2,
+    date: "June 2025",
     role: "Research Intern (AR + GenAI + 3D)",
     company: "Arishna IoT Solutions x TU Graz x Catrobat",
     description:
       "Worked on AR-driven 3D generation pipelines and contributed to real-time systems combining generative AI and spatial computing.",
   },
   {
-    id: 2,
-    date: "2025",
-    role: "GSoC Contributor",
-    company: "Catrobat",
+    id: 3,
+    date: "October 2024",
+    role: "Python Project Intern",
+    company: "Infosys",
     description:
-      "Built scalable 3D generation workflows and optimized pipelines for AR/VR applications.",
+      "Worked on Disease Prediction using Retina Fundus Images, utilizing machine learning techniques to analyze medical data and predict potential health issues.",
   },
 ];
 
@@ -187,7 +189,7 @@ const Experience = () => {
     >
       <div className="container">
         <SectionTitle
-          initial={{ opacity: 0, y: -20 }}
+          initial={false} 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
