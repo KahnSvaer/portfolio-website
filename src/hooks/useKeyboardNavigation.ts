@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { sections } from '../constants/sections'
+import { scrollToSection } from '../utils/scrollToSection';
 
 const sectionsId = sections.map(section => section.id);
+
 
 export const useKeyboardNavigation = () => {
   useEffect(() => {
@@ -17,27 +19,6 @@ export const useKeyboardNavigation = () => {
         const rect = element.getBoundingClientRect();
         return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
       });
-
-      const scrollToSection = (id: string) => {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        let offset = 80;
-
-        if (id === 'skills') {
-          offset = 0;
-        }
-
-        const top =
-          element.getBoundingClientRect().top +
-          window.scrollY -
-          offset;
-
-        window.scrollTo({
-          top,
-          behavior: 'smooth',
-        });
-      };
 
       const currentIndex = currentSection ? sectionsId.indexOf(currentSection) : -1;
 

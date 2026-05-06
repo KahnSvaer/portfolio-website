@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { theme } from '../../constants/theme';
 import { useEffect, useState } from 'react';
 import { sections } from '../../constants/sections';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 const NavContainer = styled(motion.nav)`
   position: fixed;
@@ -176,7 +177,7 @@ export const FloatingNav = () => {
   const handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      scrollToSection(sectionId);
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       e.preventDefault();
       const currentIndex = sections.findIndex(({ id }) => id === sectionId);
@@ -185,7 +186,7 @@ export const FloatingNav = () => {
         : Math.min(sections.length - 1, currentIndex + 1);
       
       const nextSection = sections[nextIndex];
-      document.getElementById(nextSection.id)?.scrollIntoView({ behavior: 'smooth' });
+      scrollToSection(nextSection.id);
     }
   };
 
