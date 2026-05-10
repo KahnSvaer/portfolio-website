@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { ReactNode, useEffect } from 'react';
 import { theme } from '../../constants/theme';
-import { FloatingNav } from '../navigation/FloatingNav';
+import BackToTop from '../navigation/BackToTop';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
 import { sections } from '../../constants/sections'
 
@@ -210,7 +210,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Main id="main-content" role="main" tabIndex={-1}>
         {children}
       </Main>
-      <FloatingNav />
+      <BackToTop />
       <Footer role="contentinfo">
         <div className="container">
           <p>© {new Date().getFullYear()} Shivansh Pachnanda. All rights reserved.</p>
