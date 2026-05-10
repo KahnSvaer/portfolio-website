@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { theme } from '../../constants/theme';
 import BackToTop from '../navigation/BackToTop';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
 import { sections } from '../../constants/sections'
+import { scrollToSection } from '../../utils/scrollToSection';
 
 interface LayoutProps {
   children: ReactNode;
@@ -109,6 +110,12 @@ const NavLinks = styled.div`
     font-weight: 500;
     padding: ${theme.spacing.xs} ${theme.spacing.sm};
     border-radius: 4px;
+    cursor: pointer;
+
+    &.active {
+      color: ${theme.colors.light} !important;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
 
     &:hover {
       color: ${theme.colors.light};
@@ -163,15 +170,43 @@ const Footer = styled.footer`
 
 export const Layout = ({ children }: LayoutProps) => {
   useKeyboardNavigation();
-
+  const [activeSection, setActiveSection] = useState('');
   useEffect(() => {
-    // Add keyboard navigation instructions to console
     console.info(
       'Keyboard Navigation:\n',
       '- Arrow Up/Down or PageUp/PageDown: Navigate between sections\n',
       '- Home: Go to top\n',
       '- End: Go to bottom'
     );
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      sections.forEach(({ id }) => {
+        const section = document.getElementById(id);
+
+        if (section) {
+          const offsetTop = section.offsetTop;
+          const offsetHeight = section.offsetHeight;
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            console.log('Active section:', id);
+            setActiveSection(id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -196,9 +231,10 @@ export const Layout = ({ children }: LayoutProps) => {
               {sections.map(({ id, name }) => (
                 <a
                   key={id}
-                  href={`#${id}`}
                   role="listitem"
                   aria-label={`${name} section`}
+                  className={activeSection === id ? 'active' : ''}
+                  onClick={() => scrollToSection(id)}
                 >
                   {name}
                 </a>
