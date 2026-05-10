@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 import { keyframes } from '@emotion/react';
 import { lazy, Suspense } from 'react';
-import profileImage from '../../assets/profileImage.png';
+import profileImage from '../../assets/profileImage_compressed.png';
 
 const FaGithub = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaGithub })));
 const FaLinkedin = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaLinkedin })));
@@ -200,7 +200,7 @@ export const Hero = () => {
               </Title>
 
               <Subtitle role="heading" aria-level={3}>
-                Computer Vision Researcher <br />
+                Spatial AI • AR/VR Systems <br />
                 Delhi NCR, India
               </Subtitle>
 
