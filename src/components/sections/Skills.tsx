@@ -142,7 +142,7 @@ const SkillItem = styled(motion.div)`
     background: ${theme.colors.gradient.glass};
     transform: translateX(5px);
     box-shadow: 0 4px 12px rgba(246, 177, 122, 0.2);
-
+    color: ${theme.colors.light};
     svg {
       transform: scale(1.1) rotate(5deg);
       color: ${theme.colors.light};
