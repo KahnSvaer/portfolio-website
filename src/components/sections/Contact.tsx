@@ -201,7 +201,7 @@ const Contact = () => {
               role="paragraph"
             >
               I'm always interested in hearing about new projects and opportunities.
-              Whether you have a question or just want to say hi, feel free to reach out!
+              If you are working in similar domains or just want to say hi, feel free to reach out!
             </ContactText>
             <ContactEmail 
               href="mailto:Shivansh.pachnanda.work@gmail.com"

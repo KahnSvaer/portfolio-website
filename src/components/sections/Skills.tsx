@@ -89,7 +89,7 @@ const SkillCategory = styled(motion.div)`
 const CategoryTitle = styled.h3`
   font-size: clamp(1.5rem, 3vw, 1.75rem);
   margin-bottom: ${theme.spacing.xl};
-  color: ${theme.colors.light};
+  color: ${theme.colors.accent};
   display: flex;
   align-items: center;
   gap: ${theme.spacing.sm};
@@ -134,7 +134,7 @@ const SkillItem = styled(motion.div)`
 
   svg {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
-    color: ${theme.colors.accent};
+    color: ${theme.colors.textLight};
     transition: all ${theme.transitions.default};
   }
 

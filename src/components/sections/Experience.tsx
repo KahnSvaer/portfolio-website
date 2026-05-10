@@ -147,7 +147,7 @@ const experienceData = [
     role: "Research Intern (AR + GenAI + 3D)",
     company: "Arishna IoT Solutions x TU Graz x Catrobat",
     description:
-      "Worked on AR-driven 3D generation pipelines and contributed to real-time systems combining generative AI and spatial computing.",
+      "Worked on AI-driven 3D generation pipelines and contributed to real-time systems combining generative AI and spatial computing.",
   },
   {
     id: 3,
