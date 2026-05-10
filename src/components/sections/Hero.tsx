@@ -268,9 +268,9 @@ export const Hero = () => {
                     href="/resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Download Resume"
+                    aria-label="View Resume"
                   >
-                    Download Resume
+                    View Resume
                   </ResumeButton>
                 </ResumeButtonWrapper>
               </ActionRow>
