@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { theme } from '../../constants/theme';
 import { FaGithub } from 'react-icons/fa';
 
+import OctoPNG from '../../assets/OctoUI.png';
+import marineGif from '../../assets/3D_project.gif';
+import waterImage from '../../assets/water_strip.jpg';
+
 const ProjectsSection = styled.section`
   min-height: 100vh;
   display: flex;
@@ -191,7 +195,7 @@ const projects = [
     title: "AI-Generated 3D Models from Marine Animals",
     description: "Core contributor to a GSoC 2025 project focused on scalable 3D asset generation using \
     state-of-the-art pretrained models for AR/VR and interactive applications.",
-    image: "https://via.placeholder.com/400x200", // replace later with actual render
+    image: marineGif, // replace later with actual render
     techStack: ["3D Generation", "PyTorch", "Diffusion Models", "AR/VR", "Optimization"],
     githubUrl: "https://github.com/AIOTSonline/Marine_Biology_GenAI",
     outcome: "Optimized Tencent Hunyuan 3D-2, reducing RAM usage by 30%, GPU usage by 60%, and latency by 80% through \
@@ -202,7 +206,7 @@ const projects = [
     title: "Water Quality Monitoring System",
     description: "An IoT + mobile system for automated water quality analysis using image processing of water quality\
       indication strips.",
-    image: "https://via.placeholder.com/400x200",
+    image: waterImage,
     techStack: ["Flutter", "Firebase", "OpenCV", "Python", "IoT"],
     githubUrl: "https://github.com/KahnSvaer/Water-Sensor-IOT-Project",
     outcome: "Production-ready IoT + mobile system for real-time water quality monitoring \
@@ -210,12 +214,21 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Three",
-    description: "Mobile-first e-commerce platform with seamless payment integration.",
-    image: "https://via.placeholder.com/400x200",
-    techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    githubUrl: "https://github.com",
-  },
+    title: "OctoUI",
+    description:
+      "A modular proof-of-concept framework for building spatially-aware computer vision interaction systems. Designed for experimentation with real-time video processing, region-based interactions, and extensible CV model integration.",
+    image: OctoPNG,
+    techStack: [
+      "Python",
+      "OpenCV",
+      "PyQt5",
+      "Computer Vision",
+      "Spatial Computing"
+    ],
+    githubUrl: "https://github.com/KahnSvaer/OctoUI",
+    outcome:
+      "Built a modular architecture for rapid experimentation with perception-driven interfaces and multiview computer vision systems. The framework can be extended into research tooling, open-source experimentation platforms, and future spatial intelligence publications."
+  }
 ];
 
 const Projects = () => {
