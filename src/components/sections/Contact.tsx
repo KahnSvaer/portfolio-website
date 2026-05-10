@@ -131,7 +131,7 @@ const SocialLinks = styled(motion.div)`
 `;
 
 const SocialLink = styled(motion.a)`
-  color: ${theme.colors.accent};
+  color: ${theme.colors.textLight};
   font-size: 1.6rem;
   transition: all ${theme.transitions.default};
   width: 45px;
