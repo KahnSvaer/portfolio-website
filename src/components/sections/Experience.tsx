@@ -112,6 +112,10 @@ const Card = styled.div`
   will-change: transform, opacity; /* 👈 FIX */
 
   padding: ${theme.spacing.md};
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(246, 177, 122, 0.15);
+  }
 `;
 
 const Role = styled.h3`
